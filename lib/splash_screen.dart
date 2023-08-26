@@ -32,7 +32,8 @@ class SplashScreenContainer extends StatelessWidget {
             onPressed: () {
               startQuiz();
             },
-            style: OutlinedButton.styleFrom(foregroundColor: Colors.white),
+            style: OutlinedButton.styleFrom(
+                foregroundColor: const Color.fromARGB(255, 224, 195, 228)),
             icon: const Icon(Icons.arrow_right_alt),
             label: Text(
               'Start Quiz',

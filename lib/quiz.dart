@@ -29,9 +29,16 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       setState(() {
         activeScreen = 'result-screen';
-        selectedAnswers.clear();
+        //selectedAnswers.clear();
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      activeScreen = 'quiz-screen';
+      selectedAnswers.clear();
+    });
   }
 
   @override
@@ -40,8 +47,7 @@ class _QuizState extends State<Quiz> {
         ? SplashScreenContainer(switchScreen)
         : activeScreen == 'result-screen'
             ? ResultsScreen(
-                chosenAnswers: selectedAnswers,
-              )
+                chosenAnswers: selectedAnswers, restartQuiz: restartQuiz)
             : Questionscreen(
                 onSelectAnswer: chooseAnswer,
               );
